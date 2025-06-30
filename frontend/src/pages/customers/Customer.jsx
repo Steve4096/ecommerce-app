@@ -2,13 +2,16 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import Button from '../../components/Button/Button';
 import Searchbar from '../../components/Searchbar/Searchbar';
+import './Customer.css'
+import { Link, Navigate, useNavigate } from 'react-router-dom';
+import AddCustomer from './AddCustomer';
 
 const Customer = () => {
   const [customers, setCustomer] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
-    axios.get('http://localhost:8080/fetchAllCustomers')
+    axios.get('http://localhost:8080/api/customer/fetchAll')
       .then(response => {
         setCustomer(response.data);
       })
@@ -17,15 +20,26 @@ const Customer = () => {
       });
   }, []);
 
-  const handleDelete = (id) => {
-    console.log("Delete customer with ID:", id);
-    // Call delete API here
-  };
+  const handleDelete = (customerNumber) => {
+    axios.delete(`http://localhost:8080/fetchAllCustomers/${customerNumber}`)
+    .then(response=>{
+      console.log("Deleted:",response.data);
+      alert(`Deleted customer: ${response.data.name} (ID: ${response.data.id})`);
+      
+      // Optionally refresh the list of customers:
+      fetchCustomers();
+    })
+    .catch(error=>{
+       console.error("Failed to delete customer:", error);
+      alert("Customer not found or could not be deleted.");
+    })
+  }
 
-  const handleSave = () => {
-    console.log("Saving customer details");
-    // Call save API here
-  };
+  const navigate=useNavigate();
+
+  const handleAddCustomer=()=>{
+     navigate('/add-customer');
+  }
 
   const filteredCustomers = customers.filter((customer) => {
     const fullName = `${customer.firstName} ${customer.lastName}`.toLowerCase();
@@ -34,7 +48,7 @@ const Customer = () => {
 
   return (
     <div className='customersPage'>
-      <h1>Customers</h1>
+      <h1 style={{textAlign:'center'}}>Customers</h1>
       <div className='topBar'>
         <Searchbar 
           type='text' 
@@ -42,7 +56,7 @@ const Customer = () => {
           value={searchQuery} 
           onChange={(e) => setSearchQuery(e.target.value)} 
         />
-        <Button text="Add Customer" variant='success' onClick={handleSave} />
+        <Button text="Add Customer" variant='success' onClick={handleAddCustomer} />
       </div>
 
       <table className='customersTable'>

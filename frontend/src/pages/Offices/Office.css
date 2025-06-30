@@ -1,0 +1,54 @@
+.office-container {
+  min-height: 80vh;
+  padding-bottom: 40px;
+}
+
+.office-container h1 {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.topBar{
+    display:flex;
+    justify-content: space-between;
+    margin: 20px auto;
+    align-items: center;
+    width: 95%;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.office-table{
+    width: 95%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    font-family: Arial, Helvetica, sans-serif;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);  /* Optional soft shadow */
+    border: 2px solid #3498db;   /* 💙 Outer border */
+}
+
+.office-table th{
+    text-align: left;
+    font-weight: bold;
+    background-color: #f5f5f5;
+    padding: 12px;
+    border-bottom: 2px solid #0a2540;
+}
+
+.office-table td{
+    padding: 10px 12px;
+    border-bottom: 2px solid #3498db;
+}
+
+.office-table tr:hover{
+    background-color: #f9f9f9;
+    cursor: pointer;
+}
+
+/*Loading and empty state center alignment*/
+.office-loading,.office-empty{
+    text-align: center;
+    margin-top: 40px;
+    font-size: 16px;
+}

@@ -5,8 +5,9 @@ const Button = ({text,onClick,type='button',variant='primary',style={},disabled=
     <button className={`customButton ${variant}`} 
     type={type} 
     onClick={onClick} 
-    style={style}>
+    style={style}
       disabled={disabled}
+      >
       {text}
       </button>
   )

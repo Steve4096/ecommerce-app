@@ -1,6 +1,62 @@
 .CustomButton{
-    background-color: #1abc9c;
-    color: white;
     padding: 10px 18px;
-    border: none;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
+
+.customButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* 🔵 Primary (default) */
+.customButton.primary {
+  background-color: #1abc9c;
+  color: white;
+}
+
+/* 🟥 Danger */
+.customButton.danger {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.customButton.danger:hover {
+  background-color: #c0392b;
+}
+
+/* 🟩 Success */
+.customButton.success {
+  background-color: #27ae60;
+  color: white;
+}
+
+.customButton.success:hover {
+  background-color: #1e8449;
+}
+
+/* 🟡 Warning */
+.customButton.warning {
+  background-color: #f39c12;
+  color: white;
+}
+
+.customButton.warning:hover {
+  background-color: #d68910;
+}
+
+/* 🔲 Outline */
+.customButton.outline {
+  background-color: transparent;
+  border: 2px solid #1abc9c;
+  color: #1abc9c;
+}
+
+.customButton.outline:hover {
+  background-color: #1abc9c;
+  color: white;
+}
+

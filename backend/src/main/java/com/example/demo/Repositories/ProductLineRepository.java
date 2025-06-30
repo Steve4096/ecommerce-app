@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface ProductLineRepository extends JpaRepository<ProductLine, Long> {
+public interface ProductLineRepository extends JpaRepository<ProductLine, String> {
     Optional<ProductLine> findByTextDescription (String textDescription);
 }

@@ -17,10 +17,10 @@ public class Customer {
     @Column(name = "first_name")
     private String firstName;
 
-    @Column
+    @Column(nullable = false)
     private String lastName;
 
-    @Column(nullable = false)
+    @Column(nullable = false,unique = true)
     private String phoneNumber;
 
     @Column
@@ -46,5 +46,9 @@ public class Customer {
 
     @Column
     private String creditLimit;
+
+//    @ManyToOne
+//    @JoinColumn(name = "employee_number",nullable = false)
+//    private Employee employee;
 
 }

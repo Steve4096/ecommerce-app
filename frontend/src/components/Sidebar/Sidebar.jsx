@@ -14,8 +14,8 @@ const Sidebar = () => {
           <li><NavLink to="/productLines">Product Lines</NavLink></li>
           <li><NavLink>Orders</NavLink></li>
           <li><NavLink>Payments</NavLink></li>
-          <li><NavLink>Employees</NavLink></li>
-          <li><NavLink>Offices</NavLink></li>
+          <li><NavLink to="/employees">Employees</NavLink></li>
+          <li><NavLink to="/offices">Offices</NavLink></li>
         </ul>
       </nav>
     </div>

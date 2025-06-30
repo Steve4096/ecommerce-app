@@ -12,7 +12,6 @@ import java.awt.image.BufferedImage;
 public class ProductLine {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false,unique = true)
     private Long productLine;
 

@@ -1,0 +1,47 @@
+.customersTable{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.customersTable th,
+.customersTable td{
+    padding: 12px 16px;
+    border: 1px solid #e0e0e0;
+    text-align: left;
+}
+
+.customersTable thead{
+    background-color: #1976d2;
+    color: black;
+}
+
+.customersTable tbody tr:nth-child(even){
+    background-color: #f9f9f9;
+}
+
+.customersTable tbody tr:hover{
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+
+.customersTable td:last-child{
+    text-align: center;
+}
+
+.topBar{
+    justify-content: space-between;
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.top-bar input {
+  padding: 10px;
+  width: 60%;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
