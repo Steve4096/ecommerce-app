@@ -14,6 +14,6 @@ public class EmployeeDTO {
         private String officeCode;
         private String reportsTo;
 
-        @Pattern(regexp = "^[A-Za-z]+$",message = "Job title can only contain letters and spaces")
+        @Pattern(regexp = "^[A-Za-z ]+$",message = "Job title can only contain letters and spaces")
         private String jobTitle;
 }

@@ -1,0 +1,68 @@
+/* Center the form nicely on the page */
+.addCustomerPage {
+  max-width: 700px;
+  margin: 50px auto;
+  padding: 40px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Form heading */
+.addCustomerPage h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+  font-size: 24px;
+}
+
+/* Horizontal layout: label + input side by side */
+.form-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/* Label style */
+.form-group label {
+  flex: 0 0 180px; /* fixed width for label */
+  font-weight: 600;
+  color: #555;
+  margin-right: 20px;
+  text-align: right;
+}
+
+/* Input fields */
+.form-group input {
+  flex: 1;
+  padding: 10px 12px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  transition: border-color 0.3s;
+}
+
+/* Focus effect */
+.form-group input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Save button styling */
+.addCustomerPage button {
+  display: block;
+  margin: 30px auto 0;
+  padding: 12px 24px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.addCustomerPage button:hover {
+  background-color: #0056b3;
+}

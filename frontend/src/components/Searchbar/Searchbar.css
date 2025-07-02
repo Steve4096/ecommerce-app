@@ -1,0 +1,23 @@
+.customSearchbar {
+  padding: 10px 14px;
+  font-size: 14px;
+  border: 2px solid #3498db;        /* consistent blue border */
+  border-radius: 6px;
+  width: 250px;
+  max-width: 100%;
+  color: #0a2540;                   /* text color */
+  transition: box-shadow 0.2s ease;
+  outline: none;
+  font-weight: 500;
+  background-color: #fff;
+}
+
+.customSearchbar:focus {
+  border-color: #3498db;            /* ✅ keep blue on focus */
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2); /* soft blue glow */
+}
+
+.customSearchbar::placeholder {
+  color: #a0a0a0;
+  font-weight: 400;
+}

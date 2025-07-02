@@ -56,7 +56,7 @@ const Customer = () => {
           value={searchQuery} 
           onChange={(e) => setSearchQuery(e.target.value)} 
         />
-        <Button text="Add Customer" variant='success' onClick={handleAddCustomer} />
+        <Button text="+Add Customer" variant='success' onClick={handleAddCustomer} />
       </div>
 
       <table className='customersTable'>

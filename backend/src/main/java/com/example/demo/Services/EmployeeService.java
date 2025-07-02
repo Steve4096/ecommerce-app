@@ -58,7 +58,9 @@ public class EmployeeService {
     public Optional<EmployeeUpdateResponseDTO> updateEmployeeDetails(String employeeNumber, EmployeeDTO dto) {
         Optional<Employee> employeeOpt = employeeRepository.findById(employeeNumber);
 
-        if (employeeOpt.isEmpty()) return Optional.empty();
+        if (employeeOpt.isEmpty()) {
+            return Optional.empty();
+        }
 
         Employee employee = employeeOpt.get();
         Map<String, Map<String, Object>> updatedFields = new HashMap<>();

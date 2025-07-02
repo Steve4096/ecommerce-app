@@ -1,62 +1,59 @@
-.CustomButton{
-    padding: 10px 18px;
+.customButton {
+  padding: 10px 18px;
   border: none;
   border-radius: 6px;
-  font-size: 16px;
+  font-size: 14px;
+  font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: background-color 0.25s ease, color 0.25s ease;
+  outline: none;
 }
 
-.customButton:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-/* 🔵 Primary (default) */
+/* Primary (default blue) */
 .customButton.primary {
-  background-color: #1abc9c;
-  color: white;
+  background-color: #3498db;
+  color: #fff;
 }
 
-/* 🟥 Danger */
+.customButton.primary:hover {
+  background-color: #2980b9;
+}
+
+/* Success (lighter modern blue) */
+.customButton.success {
+  background-color: #0a2540;
+  color: #fff;
+}
+
+.customButton.success:hover {
+  background-color: #06182b;
+}
+
+/* Danger (red) */
 .customButton.danger {
   background-color: #e74c3c;
-  color: white;
+  color: #fff;
 }
 
 .customButton.danger:hover {
   background-color: #c0392b;
 }
 
-/* 🟩 Success */
-.customButton.success {
-  background-color: #27ae60;
-  color: white;
-}
-
-.customButton.success:hover {
-  background-color: #1e8449;
-}
-
-/* 🟡 Warning */
-.customButton.warning {
-  background-color: #f39c12;
-  color: white;
-}
-
-.customButton.warning:hover {
-  background-color: #d68910;
-}
-
-/* 🔲 Outline */
-.customButton.outline {
+/* Text (transparent style) */
+.customButton.text {
   background-color: transparent;
-  border: 2px solid #1abc9c;
-  color: #1abc9c;
+  color: #3498db;
+  border: 1px solid #3498db;
 }
 
-.customButton.outline:hover {
-  background-color: #1abc9c;
-  color: white;
+.customButton.text:hover {
+  background-color: #ecf5fc;
 }
 
+/* Disabled state */
+.customButton:disabled {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+  border: none;
+}

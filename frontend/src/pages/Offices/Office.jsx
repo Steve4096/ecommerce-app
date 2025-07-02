@@ -4,12 +4,15 @@ import Searchbar from '../../components/Searchbar/Searchbar'
 import axios from 'axios';
 import  {ClipLoader} from 'react-spinners';
 import './Office.css'
+import Modal from '../../components/Modal/Modal';
 
 
 const Office = () => {
     const[offices,setOffices]=useState([]);
     const[searchQuery,setSearchQuery]=useState('');
-    const[loading,setIsLoading]=useState(false)
+    const[loading,setIsLoading]=useState(false);
+    const[selectedOfficeCode,setSelectedOfficeCode]=useState(null);
+    const[showModal,setShowModal]=useState(false);
 
     //This loads the page at the first instance
     useEffect(()=> {
@@ -33,6 +36,18 @@ const Office = () => {
         return searchFields.includes(searchQuery.toLowerCase());
     });
 
+    const handleDelete=async(officeCode)=>{
+        try{
+            await axios.delete(`http://localhost:8080/api/office/delete/${officeCode}`)
+            setOffices((prev)=>prev.filter((office)=>office.officeCode !==officeCode))
+            setShowModal(false)
+            setSelectedOfficeCode(null)
+            alert(`Office ${officeCode} has been deleted successfully`)
+        }catch(error){
+            console.log("Failed to delete office",error)
+        }
+    }
+
     //Conditional rendering to determine what message to show on the screen
     let content;
     if(loading){
@@ -55,6 +70,7 @@ const Office = () => {
                     <th>Country</th>
                     <th>Postal code</th>
                     <th>Territory</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -69,6 +85,12 @@ const Office = () => {
                     <td>{office.country}</td>
                     <td>{office.postalCode}</td>
                     <td>{office.territory}</td>
+                    <td><Button text='DELETE' variant='Danger' onClick={(e)=>{
+                        e.stopPropagation();
+                        setSelectedOfficeCode(office.officeCode);
+                        setShowModal(true);
+                    }}/>
+                       </td>
                     </tr>
                 )                
                 )}
@@ -81,10 +103,17 @@ const Office = () => {
     <div className='office-container'>
         <h1>Offices</h1>
     <div className='topBar'>
-    <Searchbar type='text' placeholder="Enter office details to search" value={searchQuery} onChange={(e)=>setSearchQuery(e.target.value)}/>
+    <Searchbar type='text' placeholder="Enter details to search" value={searchQuery} onChange={(e)=>setSearchQuery(e.target.value)}/>
     <Button text="+ Add Office" variant='success' />
     </div>
     <div>{content}</div>
+    {showModal&&<Modal message={`ARE YOU SURE YOU WANT TO DELETE OFFICE ${selectedOfficeCode}?`} 
+    onCancel={()=>{
+         setShowModal(false);
+         setSelectedOfficeCode(null);
+    }
+    }
+    onConfirm={handleDelete(selectedOfficeCode)}/>}
     </div>
   )
 }

@@ -12,10 +12,10 @@ import java.math.BigDecimal;
 public class Products {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long productCode;
+    @Column(unique = true,nullable = false)
+    private String productCode;
 
-    @Column(nullable = false)
+    @Column(unique = true, nullable = false)
     private String productName;
 
     @ManyToOne
