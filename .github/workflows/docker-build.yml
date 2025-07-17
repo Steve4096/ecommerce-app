@@ -32,7 +32,8 @@ jobs:
         uses: docker/login-action@v3
         with:
           username: stevemuturi
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          #password: ${{ secrets.DOCKERHUB_TOKEN }}
+          password: ${{ secrets.DOCKERHUB }}
 
       - name: Build and push image
         uses: docker/build-push-action@v5
