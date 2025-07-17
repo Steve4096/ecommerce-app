@@ -1,0 +1,27 @@
+.products-page {
+  min-height: 80vh;
+  padding-bottom: 40px;
+}
+
+.products-page h1 {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.topBar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px auto;
+    width: 95%;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/*Loading and empty state center alignment*/
+.products-loading,.products-empty{
+    text-align: center;
+    margin-top: 40px;
+    font-size: 16px;
+}

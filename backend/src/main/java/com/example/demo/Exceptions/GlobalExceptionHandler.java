@@ -43,8 +43,12 @@ public class GlobalExceptionHandler{
     public ResponseEntity<ApiErrorResponseClass> handleCustomerNotFoundException(CustomerNotFoundException exception,HttpServletRequest request){
         return buildErrorResponse(exception,HttpStatus.NOT_FOUND,request);
     }
+
     @ExceptionHandler(DataIntegrityViolationException.class)
     public ResponseEntity<ApiErrorResponseClass> handleDuplicateError(DataIntegrityViolationException exception,HttpServletRequest request){
         return buildErrorResponse(exception,HttpStatus.CONFLICT,request);
     }
+
+//    @ExceptionHandler(DuplicateException.class)
+//    public ResponseEntity<ApiErrorResponseClass>
 }

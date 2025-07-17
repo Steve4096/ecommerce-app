@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 @Getter
 @Setter
 @Entity
-public class Products {
+public class Product {
 
     @Id
     @Column(unique = true,nullable = false)

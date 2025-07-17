@@ -8,7 +8,7 @@ import lombok.Setter;
 @Setter
 public class ProductLineDTO {
 
-    @Pattern(regexp = "^[A-Za-z]+$",message = "ProductLine text description can only contain letters and spaces")
+   // @Pattern(regexp = "^[A-Za-z ]+$",message = "ProductLine text description can only contain letters and spaces")
     private String textDescription;
     private String htmlDescription;
     private String imagePath;

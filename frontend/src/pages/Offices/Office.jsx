@@ -20,6 +20,7 @@ const Office = () => {
             try{
                 setIsLoading(true)
                 const response=await axios.get('http://localhost:8080/api/office/fetchAll');
+                console.log("Fetched office data:", response.data);
                 setOffices(response.data);
             }catch(error){
                 console.log("Failed to fetch offices",error)

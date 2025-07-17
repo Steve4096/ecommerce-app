@@ -37,6 +37,13 @@ useEffect(()=>{
    
 },[])
 
+function stripHtml(html) {
+  const tempDiv = document.createElement('div');
+  tempDiv.innerHTML = html;
+  return tempDiv.textContent || tempDiv.innerText || '';
+}
+
+
 const handleAddProductLineClick=()=>{
   setFormData({ textDescription: '', htmlDescription: '', imagePath: '' });
   setModalType('add');
@@ -122,7 +129,7 @@ if(loading){
         <tr key={productLine.productLine}>
           <td>{productLine.productLine}</td>
           <td>{productLine.textDescription}</td>
-          <td>{productLine.htmlDescription}</td>
+          <td>{stripHtml(productLine.htmlDescription)}</td>
           <td>{productLine.imagePath}</td>
           <td><Button variant='danger' type='Danger' text='DELETE' onClick={(e)=>{
             e.stopPropagation();

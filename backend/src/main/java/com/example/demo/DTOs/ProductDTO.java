@@ -15,6 +15,7 @@ public class ProductDTO {
     @Pattern(regexp = "^[A-Za-z ]+$",message = "Product name can only contain letters and spaces")
     private String productName;
     private String productLine;
+    private String productLineTextDescription;
     private String productScale;
     private String productDescription;
     private String productVendor;
