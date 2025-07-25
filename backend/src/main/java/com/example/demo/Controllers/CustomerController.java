@@ -9,10 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 @RestController
 @RequestMapping("/api/customer")
@@ -42,6 +39,21 @@ public class CustomerController {
     public ResponseEntity<List<Customer>> findCustomerByName (@RequestParam String firstName){
         return ResponseEntity.ok(customerService.getCustomerByName(firstName));
     }
+
+    @GetMapping("/count")
+    public ResponseEntity<Map<String,Long>> countExistingCustomers(){
+    Long count= customerService.countExistingCustomers();
+    Map<String,Long> response= Collections.singletonMap("count",count);
+    return ResponseEntity.ok(response);
+    }
+
+//    @GetMapping("/count")
+//    public ResponseEntity<Map<String,Long>> countExistingCustomers(){
+//        Long count= customerService.countExistingCustomers();
+//        Map<String,Long> response=new HashMap<>();
+//        response.put("count",count);
+//        return ResponseEntity.ok(response);
+//    }
 
     @GetMapping("/fetchAll")
     public ResponseEntity<List<Customer>> fetchExistingCustomers(){

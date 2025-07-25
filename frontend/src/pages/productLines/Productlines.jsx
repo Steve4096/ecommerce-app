@@ -151,7 +151,12 @@ if(showModal){
     onCancel={(e)=>setShowModal(false)}
     onSubmit={handleFormSubmit}
     formData={formData}
-    onFormChange={handleFormChange}/>) 
+    onFormChange={handleFormChange}
+     fields={[
+    { name: 'textDescription', label: 'Text Description', type: 'text', required: true },
+    { name: 'htmlDescription', label: 'HTML Description', type: 'textarea', required: true },
+    { name: 'imagePath', label: 'Image Path', type: 'text', required: false }
+  ]}/>) 
   }else{
     modalContent=(
       <Modal variant='confirm'

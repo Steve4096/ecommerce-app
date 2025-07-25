@@ -19,7 +19,7 @@ useEffect(()=>{
     const fetchProducts=async()=>{
         try{
             setLoading(true);
-            const response=await axios.get('http://localhost:8080/api/productLine/fetchAll');
+            const response=await axios.get('http://localhost:8080/api/product/fetchAll');
             setProducts(response.data);
         }catch(error){
             console.log('Failed to fetch products',error);
@@ -31,6 +31,11 @@ useEffect(()=>{
     fetchProducts();
 },[])
 
+const filteredProducts=products.filter((item)=>{
+    const searchFields=`${item.productName} ${item.productVendor}`.toLowerCase();
+    return searchFields.includes(searchQuery.toLowerCase())
+})
+
 //Conditional rendering to determine what is shown on the frontend
 let content;
 if(loading){
@@ -38,7 +43,7 @@ if(loading){
         <ClipLoader/>
         <span>Loading..</span>
     </div>
-}else if(products.length===0){
+}else if(filteredProducts.length===0){
    content=(<p className='products-empty'>No content to show here</p>) 
 }else{
     content=(
@@ -54,7 +59,7 @@ if(loading){
                 </tr>
             </thead>
             <tbody>
-                {products.map((product)=>(
+                {filteredProducts.map((product)=>(
                     <tr key={product.productCode}>
                         <td>{product.productCode}</td>
                         <td>{product.productName}</td>

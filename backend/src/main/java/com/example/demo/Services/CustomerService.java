@@ -33,6 +33,10 @@ public class CustomerService {
                 //.orElseThrow(()->new CustomerNotFoundException(firstName));
     }
 
+    public Long countExistingCustomers(){
+        return customerRepository.count();
+    }
+
     public List<Customer> fetchExistingCustomers(){
         return customerRepository.findAll();
     }

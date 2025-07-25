@@ -46,6 +46,10 @@ public class ProductsService {
         return productsRepository.save(product);
     }
 
+    public Long countExistingProducts(){
+        return productsRepository.count();
+    }
+
     public List<Product> fetchExistingProducts(){
         return productsRepository.findAll();
     }

@@ -11,10 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 @RestController
 @RequestMapping("/api/product")
@@ -32,6 +29,13 @@ public class ProductController {
 
         //Saves and returns a http status of 201(Created)
         return ResponseEntity.created(location).body(registeredProduct);
+    }
+
+    @GetMapping("/count")
+    public ResponseEntity<Map<String,Long>> countExistingProducts(){
+        Long count= productsService.countExistingProducts();
+        Map<String,Long> response=Collections.singletonMap("count",count);
+        return ResponseEntity.ok(response);
     }
 
     @GetMapping("/fetchAll")
